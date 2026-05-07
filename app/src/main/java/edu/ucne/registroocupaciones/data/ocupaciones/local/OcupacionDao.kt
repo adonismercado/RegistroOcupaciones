@@ -20,4 +20,7 @@ interface OcupacionDao {
 
     @Query("DELETE FROM ocupaciones WHERE ocupacionId = :id")
     suspend fun deleteById(id: Int)
+
+    @Query("SELECT COUNT(*) > 0 FROM ocupaciones WHERE descripcion = :descripcion AND ocupacionId != :id")
+    suspend fun existeDescripcion(descripcion: String, id: Int) : Boolean
 }
