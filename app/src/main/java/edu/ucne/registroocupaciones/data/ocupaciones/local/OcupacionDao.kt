@@ -1,0 +1,23 @@
+package edu.ucne.registroocupaciones.data.ocupaciones.local
+
+import androidx.room.Delete
+import androidx.room.Query
+import androidx.room.Upsert
+import kotlinx.coroutines.flow.Flow
+
+interface OcupacionDao {
+    @Query("SELECT * FROM ocupaciones ORDER BY ocupacionId DESC")
+    fun observeAll(): Flow<List<OcupacionEntity>>
+
+    @Query("SELECT * FROM ocupaciones WHERE ocupacionId = :id")
+    suspend fun getById(id: Int): OcupacionEntity?
+
+    @Upsert
+    suspend fun upsert(entity: OcupacionEntity)
+
+    @Delete
+    suspend fun delete(entity: OcupacionEntity)
+
+    @Query("DELETE FROM ocupaciones WHERE ocupacionId = :id")
+    suspend fun deleteById(id: Int)
+}
