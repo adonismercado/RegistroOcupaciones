@@ -25,4 +25,8 @@ class OcupacionRepositoryImpl(
     override suspend fun delete(id: Int){
         dao.deleteById(id)
     }
+
+    override suspend fun existeDescripcion(descripcion: String, id: Int): Boolean {
+        return dao.existeDescripcion(descripcion, id)
+    }
 }
