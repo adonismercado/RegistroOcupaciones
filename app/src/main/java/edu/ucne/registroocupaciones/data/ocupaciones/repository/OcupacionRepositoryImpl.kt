@@ -7,8 +7,9 @@ import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
 import edu.ucne.registroocupaciones.domain.ocupacion.repository.OcupacionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class OcupacionRepositoryImpl(
+class OcupacionRepositoryImpl @Inject constructor(
     private val dao: OcupacionDao
 ) : OcupacionRepository {
     override fun observeOcupaciones(): Flow<List<Ocupacion>> = dao.observeAll().map { list ->
