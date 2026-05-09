@@ -12,9 +12,11 @@ fun validateDescripcion(descripcion: String): ValidationResult {
     }
 }
 
-fun validateSueldo(sueldo: Double): ValidationResult {
+fun validateSueldo(sueldo: String): ValidationResult {
     return when{
-        sueldo <= 0 -> ValidationResult(false, "El sueldo no puede ser menor o igual que 0.")
+        sueldo.isBlank() -> ValidationResult(false, "El sueldo no puede estar vacio.")
+        sueldo.toDoubleOrNull() == null -> ValidationResult(false, "El sueldo debe ser un numero.")
+        sueldo.toDouble() <= 0 -> ValidationResult(false, "El sueldo debe ser mayor que 0.")
         else -> ValidationResult(true)
     }
 }
