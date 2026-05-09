@@ -9,11 +9,7 @@ plugins {
 
 android {
     namespace = "edu.ucne.registroocupaciones"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "edu.ucne.registroocupaciones"
@@ -66,7 +62,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.moshi.kotlin)
     implementation(libs.converter.moshi)
-    implementation(libs.okhttp3.loggin.interceptor)
+    implementation(libs.okhttp3.logging.interceptor)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
