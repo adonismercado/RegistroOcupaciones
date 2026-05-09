@@ -85,4 +85,13 @@ class EditOcupacionViewModel (
             }
         }
     }
+
+    private fun onDelete() {
+        val id = state.value.ocupacionId ?: return
+        viewModelScope.launch {
+            _state.update { it.copy(isDeleting = true) }
+            deleteOcupacionUseCase(id)
+            _state.update { it.copy(isDeleting = false, deleted = true) }
+        }
+    }
 }
