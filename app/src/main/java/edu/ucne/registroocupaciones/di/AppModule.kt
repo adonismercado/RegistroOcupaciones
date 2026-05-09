@@ -8,6 +8,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import edu.ucne.registroocupaciones.data.ocupaciones.database.OcupacionDb
+import edu.ucne.registroocupaciones.data.ocupaciones.local.OcupacionDao
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -23,4 +25,9 @@ object AppModule {
         ).fallbackToDestructiveMigration()
             .build()
 
+    @Provides
+    @Singleton
+    fun provideOcupacionDao(database: OcupacionDb): OcupacionDao {
+        return database.ocupacionDao()
+    }
 }
