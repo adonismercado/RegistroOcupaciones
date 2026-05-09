@@ -1,6 +1,8 @@
 package edu.ucne.registroocupaciones.domain.ocupacion.usecase
 
-data class ValidationResult (
+import javax.inject.Inject
+
+data class ValidationResult @Inject constructor(
     val isValid: Boolean,
     val error: String? = null
 )
