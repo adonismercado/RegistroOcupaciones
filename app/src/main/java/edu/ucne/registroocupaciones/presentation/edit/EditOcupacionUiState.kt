@@ -9,5 +9,6 @@ data class EditOcupacionUiState (
     val isSaving: Boolean = false,
     val isNew: Boolean = true,
     val saved: Boolean = true,
-    val deleted: Boolean = false
+    val deleted: Boolean = false,
+    val isDeleting: Boolean = false
 )
