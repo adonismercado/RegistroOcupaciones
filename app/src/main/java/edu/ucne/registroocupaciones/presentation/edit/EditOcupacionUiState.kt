@@ -1,9 +1,9 @@
 package edu.ucne.registroocupaciones.presentation.edit
 
-data class EditTaskUiState (
+data class EditOcupacionUiState (
     val ocupacionId: Int? = null,
     val descripcion: String = "",
-    val sueldo: Double,
+    val sueldo: String = "",
     val descripcionError: String? = null,
     val sueldoError: String? = null,
     val isSaving: Boolean = false,
