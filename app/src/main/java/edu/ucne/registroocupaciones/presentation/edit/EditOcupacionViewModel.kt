@@ -6,6 +6,8 @@ import edu.ucne.registroocupaciones.domain.ocupacion.usecase.DeleteOcupacionUseC
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.GetOcupacionUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.UpsertOcupacionUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.validateDescripcion
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.validateSueldo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -40,6 +42,46 @@ class EditOcupacionViewModel (
                 }
             } else {
                 _state.update { it.copy(isNew = true, ocupacionId = null) }
+            }
+        }
+    }
+
+    private fun onSave() {
+        val descripcion = state.value.descripcion
+        val descripcionValidation = validateDescripcion(descripcion)
+        val sueldoValidation = validateSueldo(state.value.sueldo)
+
+        if (!descripcionValidation.isValid || !sueldoValidation.isValid) {
+            _state.update {
+                it.copy(
+                    descripcionError = descripcionValidation.error,
+                    sueldoError = sueldoValidation.error
+                )
+            }
+            return
+        }
+
+        viewModelScope.launch {
+            _state.update { it.copy(isSaving = true) }
+
+            val ocupacion = Ocupacion(
+                ocupacionId = state.value.ocupacionId ?: 0,
+                descripcion = descripcion,
+                sueldo = state.value.sueldo
+            )
+
+            val result = upsertOcupacionUseCase(ocupacion)
+            result.onSuccess { newId ->
+                _state.update {
+                    it.copy(
+                        isSaving = false,
+                        saved = true,
+                        ocupacionId = newId,
+                        isNew = false
+                    )
+                }
+            }.onFailure {
+                _state.update { it.copy(isSaving = false) }
             }
         }
     }
