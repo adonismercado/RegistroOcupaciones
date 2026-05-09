@@ -2,6 +2,7 @@ package edu.ucne.registroocupaciones.presentation.edit
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.DeleteOcupacionUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.GetOcupacionUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.UpsertOcupacionUseCase
@@ -13,15 +14,31 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class EditOcupacionViewModel (
+@HiltViewModel
+class EditOcupacionViewModel @Inject constructor(
     private val getOcupacionUseCase: GetOcupacionUseCase,
     private val upsertOcupacionUseCase: UpsertOcupacionUseCase,
     private val deleteOcupacionUseCase: DeleteOcupacionUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow(EditOcupacionUiState())
-
     val state: StateFlow<EditOcupacionUiState> = _state.asStateFlow()
+
+    fun onEvent(event: EditOcupacionUiEvent) {
+        when (event) {
+            is EditOcupacionUiEvent.Load -> onLoad(event.id)
+            is EditOcupacionUiEvent.DescripcionChanged -> _state.update {
+                it.copy(descripcion = event.value, descripcionError = null)
+            }
+            is EditOcupacionUiEvent.SueldoChanged -> _state.update {
+                it.copy(sueldo = event.value, sueldoError = null)
+            }
+
+            EditOcupacionUiEvent.Save -> onSave()
+            EditOcupacionUiEvent.Delete -> onDelete()
+        }
+    }
 
     private fun onLoad(id: Int?) {
         if(id == null || id == 0) {
