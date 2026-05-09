@@ -37,7 +37,8 @@ import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
 @Composable
 fun ListOcupacionScreen(
     viewModel: ListOcupacionViewModel = hiltViewModel(),
-    onAddOcupacion: () -> Unit
+    onAddOcupacion: () -> Unit,
+    onNavigateToEdit: (Int) -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
