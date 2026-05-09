@@ -1,10 +1,12 @@
 package edu.ucne.registroocupaciones.data.ocupaciones.local
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface OcupacionDao {
     @Query("SELECT * FROM ocupaciones ORDER BY ocupacionId DESC")
     fun observeAll(): Flow<List<OcupacionEntity>>
