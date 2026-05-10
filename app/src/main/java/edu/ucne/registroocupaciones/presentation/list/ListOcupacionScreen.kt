@@ -19,7 +19,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -29,6 +29,7 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -42,7 +43,17 @@ fun ListOcupacionScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    OcupacionListBody(state, viewModel::onEvent, onAddOcupacion)
+    OcupacionListBody(
+        state = state,
+        onEvent = { event ->
+            when (event) {
+                is ListOcupacionUiEvent.Edit -> onNavigateToEdit(event.id)
+                ListOcupacionUiEvent.CreateNew -> onAddOcupacion()
+                else -> viewModel.onEvent(event)
+            }
+        },
+        onAddOcupacion = onAddOcupacion
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,7 +69,7 @@ fun OcupacionListBody(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = onAddOcupacion
+                onClick = { onEvent(ListOcupacionUiEvent.CreateNew) }
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
