@@ -1,7 +1,9 @@
 package edu.ucne.registroocupaciones.presentation.edit
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.DeleteOcupacionUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.GetOcupacionUseCase
@@ -9,6 +11,7 @@ import edu.ucne.registroocupaciones.domain.ocupacion.usecase.UpsertOcupacionUseC
 import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.validateDescripcion
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.validateSueldo
+import edu.ucne.registroocupaciones.presentation.navigation.Screen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,11 +23,17 @@ import javax.inject.Inject
 class EditOcupacionViewModel @Inject constructor(
     private val getOcupacionUseCase: GetOcupacionUseCase,
     private val upsertOcupacionUseCase: UpsertOcupacionUseCase,
-    private val deleteOcupacionUseCase: DeleteOcupacionUseCase
+    private val deleteOcupacionUseCase: DeleteOcupacionUseCase,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+    private val routeArgs = savedStateHandle.toRoute<Screen.OcupacionForm>()
+    private val ocupacionId: Int = routeArgs.ocupacionId
     private val _state = MutableStateFlow(EditOcupacionUiState())
     val state: StateFlow<EditOcupacionUiState> = _state.asStateFlow()
 
+    init {
+        onLoad(ocupacionId)
+    }
     fun onEvent(event: EditOcupacionUiEvent) {
         when (event) {
             is EditOcupacionUiEvent.Load -> onLoad(event.id)
