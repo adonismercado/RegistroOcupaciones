@@ -72,6 +72,9 @@ fun EditOcupacionScreen(
                 minLines = 3,
                 maxLines = 5
             )
+            state.descripcionError?.let {
+                Text(text = it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+            }
 
             OutlinedTextField(
                 value = state.sueldo,
@@ -82,6 +85,9 @@ fun EditOcupacionScreen(
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 singleLine = true
             )
+            state.sueldoError?.let {
+                Text(text = it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+            }
 
             Spacer(modifier = Modifier.height(8.dp))
 
