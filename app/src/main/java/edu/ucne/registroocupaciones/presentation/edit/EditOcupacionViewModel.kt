@@ -106,8 +106,13 @@ class EditOcupacionViewModel @Inject constructor(
                         isNew = false
                     )
                 }
-            }.onFailure {
-                _state.update { it.copy(isSaving = false) }
+            }.onFailure { error ->
+                _state.update {
+                    it.copy(
+                        isSaving = false,
+                        descripcionError = error.message
+                    )
+                }
             }
         }
     }
