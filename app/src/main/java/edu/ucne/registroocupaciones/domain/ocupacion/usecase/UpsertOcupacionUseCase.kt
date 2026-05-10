@@ -18,6 +18,9 @@ class UpsertOcupacionUseCase @Inject constructor(
             return Result.failure(IllegalArgumentException(sueldoResult.error))
         }
 
+        if (repository.existeDescripcion(ocupacion.descripcion, ocupacion.ocupacionId?: 0)) {
+            return Result.failure(IllegalArgumentException("Ya existe una ocupacion con esa descripcion."))
+        }
         return runCatching { repository.upsert(ocupacion) }
     }
 }
