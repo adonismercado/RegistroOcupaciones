@@ -24,6 +24,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.IconButton
@@ -155,6 +156,14 @@ fun OcupacionItem(
                 )
             }
 
+            IconButton(
+                onClick = onClick
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = "Editar ocupacion"
+                )
+            }
             IconButton(
                 onClick = onDelete
             ) {
