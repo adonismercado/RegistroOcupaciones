@@ -8,7 +8,7 @@ data class EditOcupacionUiState (
     val sueldoError: String? = null,
     val isSaving: Boolean = false,
     val isNew: Boolean = true,
-    val saved: Boolean = true,
+    val saved: Boolean = false,
     val deleted: Boolean = false,
     val isDeleting: Boolean = false
 )
