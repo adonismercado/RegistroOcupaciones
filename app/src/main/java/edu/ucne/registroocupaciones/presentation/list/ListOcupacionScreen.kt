@@ -151,7 +151,7 @@ fun OcupacionItem(
                 Text(
                     text = "DOP$ ${ocupacion.sueldo}",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onPrimary
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
 
