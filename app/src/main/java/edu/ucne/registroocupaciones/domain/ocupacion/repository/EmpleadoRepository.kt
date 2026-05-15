@@ -1,0 +1,15 @@
+package edu.ucne.registroocupaciones.domain.ocupacion.repository
+
+import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
+import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
+import kotlinx.coroutines.flow.Flow
+import java.time.LocalDate
+
+interface EmpleadoRepository {
+    fun observeEmpleados(): Flow<List<Empleado>>
+    suspend fun getEmpleado(id: Int): Empleado?
+    suspend fun upsert(empleado: Empleado): Int
+    suspend fun delete(id: Int)
+    suspend fun filterByName(nombre: String): Flow<List<Empleado>>
+    suspend fun filterByDate(fecha: LocalDate): Flow<List<Empleado>>
+}
