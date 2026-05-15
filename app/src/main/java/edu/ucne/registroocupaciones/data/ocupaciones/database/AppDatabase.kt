@@ -13,6 +13,6 @@ import edu.ucne.registroocupaciones.data.ocupaciones.local.entities.OcupacionEnt
     exportSchema = false
 )
 
-abstract class OcupacionDb : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     abstract fun ocupacionDao(): OcupacionDao
 }
