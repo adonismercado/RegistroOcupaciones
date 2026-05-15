@@ -23,6 +23,10 @@ class ListEmpleadoViewModel @Inject constructor(
     private val _state = MutableStateFlow(ListEmpleadoUiState(isLoading = true))
     val state: StateFlow<ListEmpleadoUiState> = _state.asStateFlow()
 
+    init {
+        onLaod()
+    }
+
     fun onEvent(event: ListEmpleadoUiEvent) {
         when(event) {
             ListEmpleadoUiEvent.Load -> onLaod()
