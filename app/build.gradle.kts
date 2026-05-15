@@ -44,6 +44,7 @@ room {
 }
 
 dependencies {
+    implementation(libs.androidx.databinding.adapters)
     //navegacion
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
