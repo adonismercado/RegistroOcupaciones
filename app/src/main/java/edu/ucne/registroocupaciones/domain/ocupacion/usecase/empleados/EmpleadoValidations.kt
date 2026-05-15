@@ -3,7 +3,7 @@ package edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados
 import java.time.LocalDate
 import javax.inject.Inject
 
-class ValidationResult @Inject constructor(
+data class ValidationResult @Inject constructor(
     val isValid: Boolean,
     val error: String? = null
 )
