@@ -12,6 +12,8 @@ import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.validateF
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.validateNombre
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.validateSueldo
 import edu.ucne.registroocupaciones.presentation.navigation.Screen
+import edu.ucne.registroocupaciones.presentation.ocupacion.edit.EditOcupacionUiEvent
+import edu.ucne.registroocupaciones.presentation.ocupacion.list.ListOcupacionUiEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -31,6 +33,28 @@ class EditEmpleadoViewModel @Inject constructor(
     private val empleadoId: Int = routeArgs.empleadoId
     private val _state = MutableStateFlow(EditEmpleadoUiState())
     val state: StateFlow<EditEmpleadoUiState> = _state.asStateFlow()
+
+    fun onEvent(event: EditEmpleadoUiEvent) {
+        when (event) {
+            is EditEmpleadoUiEvent.Load -> onLoad(event.id)
+            is EditEmpleadoUiEvent.FechaIngresoChanged -> _state.update {
+                it.copy(fechaIngreso = event.value, fechaIngresoError = null)
+            }
+            is EditEmpleadoUiEvent.NombresChanged -> _state.update {
+                it.copy(nombres = event.value, nombresError = null)
+            }
+            is EditEmpleadoUiEvent.SexoChanged -> _state.update {
+                it.copy(sexo = event.value, sexoError = null)
+            }
+            is EditEmpleadoUiEvent.SueldoChanged -> _state.update {
+                it.copy(sueldo = event.value, sueldoError = null)
+            }
+
+            EditEmpleadoUiEvent.Save -> onSave()
+            EditEmpleadoUiEvent.Delete -> onDelete()
+        }
+
+    }
 
     private fun onLoad(id: Int?) {
         if (id == null || id == 0) {
@@ -65,9 +89,9 @@ class EditEmpleadoViewModel @Inject constructor(
         if (!nombresValidation.isValid || !sueldoValidation.isValid || !fechaIngresoValidation.isValid) {
             _state.update {
                 it.copy(
-                    fechaIngresoError = fechaIngresoValidation.error,
-                    nombresError = nombresValidation.error,
-                    sueldoError = sueldoValidation.error
+                    fechaIngresoError = fechaIngresoValidation.error ?: "",
+                    nombresError = nombresValidation.error ?: "",
+                    sueldoError = sueldoValidation.error ?: ""
                 )
             }
             return
@@ -98,7 +122,7 @@ class EditEmpleadoViewModel @Inject constructor(
                 _state.update {
                     it.copy(
                         isSaving = false,
-                        nombresError = error.message
+                        nombresError = error.message ?: "Error desconocido."
                     )
                 }
             }
