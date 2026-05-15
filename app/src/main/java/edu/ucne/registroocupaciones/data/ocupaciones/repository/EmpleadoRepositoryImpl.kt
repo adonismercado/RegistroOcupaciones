@@ -32,7 +32,7 @@ class EmpleadoRepositoryImpl @Inject constructor(
         list.map { it.toDomain() }
     }
 
-    override suspend fun filterByDate(fecha: LocalDate): Flow<List<Empleado>> = dao.filterByDate(fecha).map { list ->
+    override suspend fun filterByDate(fecha: LocalDate): Flow<List<Empleado>> = dao.filterByDate(fecha.toString()).map { list ->
         list.map { it.toDomain() }
     }
 }
