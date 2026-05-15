@@ -5,11 +5,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import edu.ucne.registroocupaciones.presentation.edit.EditOcupacionScreen
-import edu.ucne.registroocupaciones.presentation.list.ListOcupacionScreen
+import edu.ucne.registroocupaciones.presentation.ocupacion.edit.EditOcupacionScreen
+import edu.ucne.registroocupaciones.presentation.ocupacion.list.ListOcupacionScreen
 
 @Composable
-fun TaskNavHost(
+fun OcupacionNavHost(
     navController: NavHostController = rememberNavController()
 ) {
     NavHost(

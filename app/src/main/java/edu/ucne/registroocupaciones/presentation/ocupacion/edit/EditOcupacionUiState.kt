@@ -1,4 +1,4 @@
-package edu.ucne.registroocupaciones.presentation.edit
+package edu.ucne.registroocupaciones.presentation.ocupacion.edit
 
 data class EditOcupacionUiState (
     val ocupacionId: Int? = null,

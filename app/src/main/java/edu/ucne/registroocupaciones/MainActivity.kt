@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import edu.ucne.registroocupaciones.presentation.navigation.TaskNavHost
+import edu.ucne.registroocupaciones.presentation.navigation.OcupacionNavHost
 import edu.ucne.registroocupaciones.ui.theme.RegistroOcupacionesTheme
 
 @AndroidEntryPoint
@@ -19,24 +19,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RegistroOcupacionesTheme {
-                TaskNavHost()
+                OcupacionNavHost()
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    RegistroOcupacionesTheme {
-        Greeting("Android")
     }
 }
