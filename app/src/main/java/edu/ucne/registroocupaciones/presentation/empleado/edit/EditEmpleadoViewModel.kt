@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
+import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.DeleteEmpleadoUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.GetEmpleadoUseCase
@@ -23,6 +24,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.newCoroutineContext
 import javax.inject.Inject
 
+@HiltViewModel
 class EditEmpleadoViewModel @Inject constructor(
     private val getEmpleadoUseCase: GetEmpleadoUseCase,
     private val upsertEmpleadoUseCase: UpsertEmpleadoUseCase,
