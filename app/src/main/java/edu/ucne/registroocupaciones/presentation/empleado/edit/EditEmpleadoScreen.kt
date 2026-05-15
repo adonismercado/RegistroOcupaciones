@@ -1,6 +1,7 @@
 package edu.ucne.registroocupaciones.presentation.empleado.edit
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -159,6 +160,8 @@ fun EditEmpleadoScreen(
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 singleLine = true
             )
+
+            Spacer(modifier = Modifier.padding(16.dp))
 
             Button(
                 onClick = { viewModel.onEvent(EditEmpleadoUiEvent.Save) },
