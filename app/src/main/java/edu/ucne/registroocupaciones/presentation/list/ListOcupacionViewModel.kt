@@ -1,11 +1,10 @@
 package edu.ucne.registroocupaciones.presentation.list
 
-import android.media.metrics.Event
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.DeleteOcupacionUseCase
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ObserveOcupacionUseCase
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones.DeleteOcupacionUseCase
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones.ObserveOcupacionUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

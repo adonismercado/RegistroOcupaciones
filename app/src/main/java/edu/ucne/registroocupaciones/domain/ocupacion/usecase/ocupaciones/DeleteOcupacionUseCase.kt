@@ -1,4 +1,4 @@
-package edu.ucne.registroocupaciones.domain.ocupacion.usecase
+package edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones
 
 import edu.ucne.registroocupaciones.domain.ocupacion.repository.OcupacionRepository
 import javax.inject.Inject

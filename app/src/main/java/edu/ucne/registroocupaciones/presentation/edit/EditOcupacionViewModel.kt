@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.DeleteOcupacionUseCase
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.GetOcupacionUseCase
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.UpsertOcupacionUseCase
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones.DeleteOcupacionUseCase
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones.GetOcupacionUseCase
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones.UpsertOcupacionUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.validateDescripcion
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.validateSueldo
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones.validateDescripcion
+import edu.ucne.registroocupaciones.domain.ocupacion.usecase.ocupaciones.validateSueldo
 import edu.ucne.registroocupaciones.presentation.navigation.Screen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
