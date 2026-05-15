@@ -10,6 +10,7 @@ data class EditEmpleadoUiState(
     val sueldo: String = "",
     val nombresError: String? = null,
     val fechaIngresoError: String? = null,
+    val sexoError: String? = null,
     val sueldoError: String? = null,
     val isSaving: Boolean = false,
     val isNew: Boolean = true,
