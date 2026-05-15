@@ -23,11 +23,11 @@ interface EmpleadoDao {
     suspend fun delete(entity: EmpleadoEntity)
 
     @Query("DELETE FROM empleados WHERE empleadoId = :id")
-    suspend fun deleteById(id: Int): EmpleadoEntity?
+    suspend fun deleteById(id: Int)
 
     @Query("SELECT * FROM empleados WHERE nombres LIKE '%' || :nombre || '%'")
     fun filterByName(nombre: String): Flow<List<EmpleadoEntity>>
 
     @Query("SELECT * FROM empleados WHERE fechaIngreso = :fecha")
-    fun filterByDate(fecha: LocalDate): Flow<List<EmpleadoEntity>>
+    fun filterByDate(fecha: String): Flow<List<EmpleadoEntity>>
 }
