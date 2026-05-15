@@ -161,7 +161,7 @@ fun OcupacionItem(
             ) {
                 Icon(
                     imageVector = Icons.Default.Edit,
-                    contentDescription = "Editar ocupacion"
+                    contentDescription = "Editar ocupacion "
                 )
             }
             IconButton(

@@ -1,8 +1,7 @@
-package edu.ucne.registroocupaciones.data.ocupaciones.local
+package edu.ucne.registroocupaciones.data.ocupaciones.local.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
 
 @Entity(tableName = "ocupaciones")
 data class OcupacionEntity(
