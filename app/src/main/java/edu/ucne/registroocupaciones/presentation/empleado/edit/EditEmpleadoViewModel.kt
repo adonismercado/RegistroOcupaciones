@@ -34,6 +34,10 @@ class EditEmpleadoViewModel @Inject constructor(
     private val _state = MutableStateFlow(EditEmpleadoUiState())
     val state: StateFlow<EditEmpleadoUiState> = _state.asStateFlow()
 
+    init {
+        onLoad(empleadoId)
+    }
+
     fun onEvent(event: EditEmpleadoUiEvent) {
         when (event) {
             is EditEmpleadoUiEvent.Load -> onLoad(event.id)
