@@ -5,6 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import edu.ucne.registroocupaciones.presentation.empleado.edit.EditEmpleadoScreen
+import edu.ucne.registroocupaciones.presentation.empleado.list.ListEmpleadoScreen
 import edu.ucne.registroocupaciones.presentation.ocupacion.edit.EditOcupacionScreen
 import edu.ucne.registroocupaciones.presentation.ocupacion.list.ListOcupacionScreen
 
@@ -32,6 +34,19 @@ fun AppNavHost(
                 onBack = {
                     navController.navigateUp()
                 }
+            )
+        }
+
+        composable<Screen.EmpleadoList> {
+            ListEmpleadoScreen(
+                onAddEmpleado = { navController.navigate(Screen.EmpleadoForm(0)) },
+                onNavigateToEdit = { id -> navController.navigate(Screen.EmpleadoForm(id)) }
+            )
+        }
+
+        composable<Screen.EmpleadoForm> {
+            EditEmpleadoScreen(
+                onBack = { navController.navigateUp() }
             )
         }
     }
