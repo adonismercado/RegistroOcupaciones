@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.future.future
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newCoroutineContext
 import javax.inject.Inject
@@ -101,6 +102,15 @@ class EditEmpleadoViewModel @Inject constructor(
                     )
                 }
             }
+        }
+    }
+
+    private fun onDelete() {
+        val id = state.value.empleadoId ?: return
+        viewModelScope.launch {
+            _state.update { it.copy(isDeleting = true) }
+            deleteEmpleadoUseCase(id)
+            _state.update { it.copy(isDeleting = false, deleted = true) }
         }
     }
 }
