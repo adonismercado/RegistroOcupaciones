@@ -1,6 +1,6 @@
 package edu.ucne.registroocupaciones.data.ocupaciones.repository
 
-import edu.ucne.registroocupaciones.data.ocupaciones.local.OcupacionDao
+import edu.ucne.registroocupaciones.data.ocupaciones.local.dao.OcupacionDao
 import edu.ucne.registroocupaciones.data.ocupaciones.mapper.toDomain
 import edu.ucne.registroocupaciones.data.ocupaciones.mapper.toEntity
 import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
