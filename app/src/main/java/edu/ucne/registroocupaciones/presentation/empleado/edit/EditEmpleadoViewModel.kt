@@ -6,22 +6,18 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.DeleteEmpleadoUseCase
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.GetEmpleadoUseCase
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.UpsertEmpleadoUseCase
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.validateFecha
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.validateNombre
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.validateSueldo
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.DeleteEmpleadoUseCase
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.GetEmpleadoUseCase
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.UpsertEmpleadoUseCase
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.validateFecha
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.validateNombre
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.validateSueldo
 import edu.ucne.registroocupaciones.presentation.navigation.Screen
-import edu.ucne.registroocupaciones.presentation.ocupacion.edit.EditOcupacionUiEvent
-import edu.ucne.registroocupaciones.presentation.ocupacion.list.ListOcupacionUiEvent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.future.future
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.newCoroutineContext
 import javax.inject.Inject
 
 @HiltViewModel

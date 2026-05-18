@@ -1,12 +1,10 @@
 package edu.ucne.registroocupaciones.presentation.empleado.list
 
-import androidx.compose.ui.input.key.KeyEvent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.DeleteEmpleadoUseCase
-import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.ObserveEmpleadoUseCase
-import edu.ucne.registroocupaciones.presentation.ocupacion.list.ListOcupacionUiEvent
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.DeleteEmpleadoUseCase
+import edu.ucne.registroocupaciones.domain.empleado.usecase.empleados.ObserveEmpleadoUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

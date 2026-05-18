@@ -1,4 +1,4 @@
-package edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados
+package edu.ucne.registroocupaciones.domain.empleado.usecase.empleados
 
 import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
 import edu.ucne.registroocupaciones.domain.empleado.repository.EmpleadoRepository
