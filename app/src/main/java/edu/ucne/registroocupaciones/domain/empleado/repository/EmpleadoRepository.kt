@@ -9,6 +9,4 @@ interface EmpleadoRepository {
     suspend fun getEmpleado(id: Int): Empleado?
     suspend fun upsert(empleado: Empleado): Int
     suspend fun delete(id: Int)
-    suspend fun filterByName(nombre: String): Flow<List<Empleado>>
-    suspend fun filterByDate(fecha: LocalDate): Flow<List<Empleado>>
 }

@@ -23,10 +23,4 @@ interface EmpleadoDao {
 
     @Query("DELETE FROM empleados WHERE empleadoId = :id")
     suspend fun deleteById(id: Int)
-
-    @Query("SELECT * FROM empleados WHERE nombres LIKE '%' || :nombre || '%'")
-    fun filterByName(nombre: String): Flow<List<EmpleadoEntity>>
-
-    @Query("SELECT * FROM empleados WHERE fechaIngreso = :fecha")
-    fun filterByDate(fecha: String): Flow<List<EmpleadoEntity>>
 }

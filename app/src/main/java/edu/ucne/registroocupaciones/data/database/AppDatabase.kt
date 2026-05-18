@@ -11,7 +11,6 @@ import edu.ucne.registroocupaciones.data.empleados.dao.EmpleadoDao
     entities = [
         OcupacionEntity::class,
         EmpleadoEntity::class
-
     ],
     version = 3,
     exportSchema = false

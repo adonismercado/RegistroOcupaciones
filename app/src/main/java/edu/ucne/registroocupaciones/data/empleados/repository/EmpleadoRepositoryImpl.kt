@@ -27,12 +27,4 @@ class EmpleadoRepositoryImpl @Inject constructor(
     override suspend fun delete(id: Int) {
         dao.deleteById(id)
     }
-
-    override suspend fun filterByName(nombre: String): Flow<List<Empleado>> = dao.filterByName(nombre).map { list ->
-        list.map { it.toDomain() }
-    }
-
-    override suspend fun filterByDate(fecha: LocalDate): Flow<List<Empleado>> = dao.filterByDate(fecha.toString()).map { list ->
-        list.map { it.toDomain() }
-    }
 }
