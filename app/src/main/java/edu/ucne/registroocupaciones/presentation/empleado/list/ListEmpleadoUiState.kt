@@ -1,6 +1,6 @@
 package edu.ucne.registroocupaciones.presentation.empleado.list
 
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
+import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
 
 data class ListEmpleadoUiState (
     val isLoading: Boolean = false,

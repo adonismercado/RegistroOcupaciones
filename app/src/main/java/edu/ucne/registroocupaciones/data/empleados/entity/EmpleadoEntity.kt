@@ -1,8 +1,7 @@
-package edu.ucne.registroocupaciones.data.ocupaciones.local.entities
+package edu.ucne.registroocupaciones.data.empleados.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.LocalDate
 
 @Entity(tableName = "empleados")
 data class EmpleadoEntity (

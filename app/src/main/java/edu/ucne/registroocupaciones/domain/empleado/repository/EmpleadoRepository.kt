@@ -1,7 +1,6 @@
-package edu.ucne.registroocupaciones.domain.ocupacion.repository
+package edu.ucne.registroocupaciones.domain.empleado.repository
 
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
+import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
 

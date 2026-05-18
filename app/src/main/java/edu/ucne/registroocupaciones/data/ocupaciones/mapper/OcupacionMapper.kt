@@ -1,6 +1,6 @@
 package edu.ucne.registroocupaciones.data.ocupaciones.mapper
 
-import edu.ucne.registroocupaciones.data.ocupaciones.local.entities.OcupacionEntity
+import edu.ucne.registroocupaciones.data.ocupaciones.local.entity.OcupacionEntity
 import edu.ucne.registroocupaciones.domain.ocupacion.model.Ocupacion
 
 fun OcupacionEntity.toDomain(): Ocupacion = Ocupacion(

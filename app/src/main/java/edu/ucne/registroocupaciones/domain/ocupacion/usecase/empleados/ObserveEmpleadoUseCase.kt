@@ -1,7 +1,7 @@
 package edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados
 
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
-import edu.ucne.registroocupaciones.domain.ocupacion.repository.EmpleadoRepository
+import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
+import edu.ucne.registroocupaciones.domain.empleado.repository.EmpleadoRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

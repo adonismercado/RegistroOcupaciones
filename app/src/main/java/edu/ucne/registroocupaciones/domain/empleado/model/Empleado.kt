@@ -1,4 +1,4 @@
-package edu.ucne.registroocupaciones.domain.ocupacion.model
+package edu.ucne.registroocupaciones.domain.empleado.model
 
 import java.time.LocalDate
 

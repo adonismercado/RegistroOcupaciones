@@ -1,10 +1,10 @@
-package edu.ucne.registroocupaciones.data.ocupaciones.repository
+package edu.ucne.registroocupaciones.data.empleados.repository
 
-import edu.ucne.registroocupaciones.data.ocupaciones.local.daos.EmpleadoDao
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
-import edu.ucne.registroocupaciones.domain.ocupacion.repository.EmpleadoRepository
-import edu.ucne.registroocupaciones.data.ocupaciones.mapper.toDomain
-import edu.ucne.registroocupaciones.data.ocupaciones.mapper.toEntity
+import edu.ucne.registroocupaciones.data.empleados.dao.EmpleadoDao
+import edu.ucne.registroocupaciones.data.empleados.mapper.toDomain
+import edu.ucne.registroocupaciones.data.empleados.mapper.toEntity
+import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
+import edu.ucne.registroocupaciones.domain.empleado.repository.EmpleadoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate

@@ -34,7 +34,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
+import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
 
 @Composable
 fun ListEmpleadoScreen(

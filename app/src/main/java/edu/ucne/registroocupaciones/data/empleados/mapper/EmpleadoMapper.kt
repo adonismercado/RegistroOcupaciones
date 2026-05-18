@@ -1,7 +1,7 @@
-package edu.ucne.registroocupaciones.data.ocupaciones.mapper
+package edu.ucne.registroocupaciones.data.empleados.mapper
 
-import edu.ucne.registroocupaciones.data.ocupaciones.local.entities.EmpleadoEntity
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
+import edu.ucne.registroocupaciones.data.empleados.entity.EmpleadoEntity
+import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
 import java.time.LocalDate
 
 fun EmpleadoEntity.toDomain(): Empleado = Empleado(

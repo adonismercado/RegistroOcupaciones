@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
+import edu.ucne.registroocupaciones.domain.empleado.model.Empleado
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.DeleteEmpleadoUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.GetEmpleadoUseCase
 import edu.ucne.registroocupaciones.domain.ocupacion.usecase.empleados.UpsertEmpleadoUseCase

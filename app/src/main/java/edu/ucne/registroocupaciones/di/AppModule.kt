@@ -7,10 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import edu.ucne.registroocupaciones.data.ocupaciones.database.AppDatabase
-import edu.ucne.registroocupaciones.data.ocupaciones.local.daos.EmpleadoDao
-import edu.ucne.registroocupaciones.data.ocupaciones.local.daos.OcupacionDao
-import edu.ucne.registroocupaciones.domain.ocupacion.model.Empleado
+import edu.ucne.registroocupaciones.data.database.AppDatabase
+import edu.ucne.registroocupaciones.data.empleados.dao.EmpleadoDao
+import edu.ucne.registroocupaciones.data.ocupaciones.local.dao.OcupacionDao
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
